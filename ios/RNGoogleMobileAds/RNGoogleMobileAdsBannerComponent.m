@@ -154,6 +154,10 @@
           }];
 }
 
+- (void)bannerViewDidRecordClick:(nonnull GADBannerView *)bannerView {
+  [self sendEvent:@"onAdClicked" payload:@{}];
+}
+
 - (void)recordManualImpression {
   if ([_banner class] == [GAMBannerView class]) {
     [((GAMBannerView *)_banner) recordImpression];
